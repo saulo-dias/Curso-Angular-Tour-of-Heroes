@@ -1,0 +1,22 @@
+<!-- Aqui estamos utilizando o *ngIf para verificar se há mensagens -->
+<mat-accordion *ngIf="messageService.getMessages().length">
+
+    <mat-expansion-panel expanded="true">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Messages
+            </mat-panel-title>
+            <mat-panel-description>
+                {{messageService.getMessages().length}} record(s)
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>
+            <!-- Botão para limpar as mensagens -->
+            <button color="warn" mat-raised-button (click)="messageService.clear()">Clear messages</button>
+        </p>    
+        <!-- Aqui estamos utilizando o *ngFor para iterar sobre as mensagens -->
+        <div *ngFor="let message of messageService.getMessages()">
+            {{ message }}
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>
