@@ -1,9 +1,17 @@
 <mat-toolbar color="primary">
     <span> {{title}}</span>
+    <span>My App</span>
+    <span fxFlex></span>
+
+    <button mat-icon-button aria-label="Heroes list" 
+    matTooltip="Heroes"
+    routerLink="/heroes">
+        <mat-icon>emoji_people</mat-icon>
+    </button>
 </mat-toolbar>
 
 <div class="content">
-<app-heroes></app-heroes>
-<app-messages></app-messages>
+    <router-outlet></router-outlet>
+    <app-messages></app-messages>   
 
 </div>
