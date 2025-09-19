@@ -13,6 +13,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -22,7 +24,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     HeroesComponent,
     HeroDetailComponent, 
     HeroDetailComponent, 
-    MessagesComponent
+    MessagesComponent, DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatExpansionModule,
     MatIconModule,
     FlexLayoutModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatCardModule
     
   ],
   providers: [],
