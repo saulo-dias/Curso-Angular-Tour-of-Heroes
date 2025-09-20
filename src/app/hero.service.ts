@@ -18,4 +18,11 @@ export class HeroService {
     return heroes;
     
 }
+
+getHero(id: number): Observable<Hero> {
+  // Usamos o .find para encontrar o herói pelo id -- Esse find retorna o primeiro elemento que satisfaz a condição
+  const hero = HEROES.find(hero => hero.id === id)!; // O operador ! é utilizado para informar ao TypeScript que o valor não será nulo ou indefinido
+  this.messageService.add(`HeroService: fetched hero id=${id}`);
+  return of(hero);
+}
 }
