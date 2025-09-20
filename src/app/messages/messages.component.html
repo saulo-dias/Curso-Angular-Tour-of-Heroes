@@ -14,9 +14,12 @@
             <!-- Botão para limpar as mensagens -->
             <button color="warn" mat-raised-button (click)="messageService.clear()">Clear messages</button>
         </p>    
-        <!-- Aqui estamos utilizando o *ngFor para iterar sobre as mensagens -->
-        <div *ngFor="let message of messageService.getMessages()">
-            {{ message }}
-        </div>
+
+        <mat-list>
+            <!-- Aqui estamos utilizando o *ngFor para iterar sobre as mensagens -->
+            <mat-list-item *ngFor="let message of messageService.getMessages()">
+                {{ message }}
+            </mat-list-item>
+        </mat-list>
     </mat-expansion-panel>
 </mat-accordion>

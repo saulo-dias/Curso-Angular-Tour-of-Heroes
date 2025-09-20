@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./heroes.component.scss'],
 })
 export class HeroesComponent implements OnInit {
+  displayedColumns: string[] = ['id', 'name']; // Colunas da tabela
   heroes: Hero[] = [];
   
 
