@@ -6,10 +6,8 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { FormsModule } from '@angular/forms';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { MaterialModule } from './material/material.module';
+import { CoreModule } from './core/core.module';
 
 
 
@@ -21,15 +19,14 @@ import { MaterialModule } from './material/material.module';
     HeroesComponent,
     HeroDetailComponent, 
     HeroDetailComponent, 
-    MessagesComponent, DashboardComponent
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    FlexLayoutModule,
-    MaterialModule
+    CoreModule
     
   ],
   providers: [],
