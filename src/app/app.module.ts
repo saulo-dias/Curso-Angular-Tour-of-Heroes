@@ -5,8 +5,6 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
-import { DashboardModule } from './dashboard/dashboard.module';
-import { HeroesModule } from './heroes/heroes.module';
 
 
 
@@ -21,10 +19,6 @@ import { HeroesModule } from './heroes/heroes.module';
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-
-    // Feature
-    DashboardModule,
-    HeroesModule,
 
     //App
     CoreModule,
