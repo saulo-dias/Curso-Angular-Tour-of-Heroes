@@ -1,28 +1,43 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Hero } from '../models/hero.model';
 import { MessageService } from '../services/message.service';
-import { HEROES } from '../services/mock-heroes'
-
+import { HEROES } from '../services/mock-heroes';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HeroService {
+  private heroesUrl = `${environment.baseUrl}/heroes`; // URL to web api
 
-  constructor(private messageService: MessageService) {}
+  // GET: Obter dados
+  // PUT/PATCH: Alterar dados
+  // POST: Criar dados
+  // DELETE: Remover dados
 
-  getHeroes(): Observable<Hero[]>{
-    const heroes = of(HEROES); // o of é utilizado para transformar um array em um Observable
-    this.messageService.add(' HeroService: fetched heroes'); // Adiciona uma mensagem ao serviço de mensagens
-    return heroes;
-    
-}
+  constructor(
+    private http: HttpClient,
+    private messageService: MessageService
+  ) {}
 
-getHero(id: number): Observable<Hero> {
-  // Usamos o .find para encontrar o herói pelo id -- Esse find retorna o primeiro elemento que satisfaz a condição
-  const hero = HEROES.find(hero => hero.id === id)!; // O operador ! é utilizado para informar ao TypeScript que o valor não será nulo ou indefinido
-  this.messageService.add(`HeroService: fetched hero id=${id}`);
-  return of(hero);
-}
+  getHeroes(): Observable<Hero[]> {
+    return this.http.get<Hero[]>(this.heroesUrl).pipe(
+      tap((heroes) => this.log(`fetched ${heroes.length} hero(es)`)) // Adiciona uma mensagem ao serviço de mensagens
+    );
+  }
+
+  //GET /heroes
+  getHero(id: number): Observable<Hero> {
+    return this.http
+      .get<Hero>(`${this.heroesUrl}/${id}`)
+      .pipe(
+        tap((hero) => this.log(`fetched hero id=${id} and name=${hero.name}`))
+      );
+  }
+
+  private log(message: string): void {
+    this.messageService.add(`HeroService: ${message}`);
+  }
 }
