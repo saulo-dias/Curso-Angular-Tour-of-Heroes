@@ -6,7 +6,7 @@
     },
     {
       "id": 2,
-      "name": ""
+      "name": "Spider Man"
     },
     {
       "id": 3,
@@ -14,7 +14,7 @@
     },
     {
       "id": 4,
-      "name": "     Mulher Marav  ilha"
+      "name": "Mulher Maravilha"
     },
     {
       "id": 5,
@@ -39,6 +39,10 @@
     {
       "id": 10,
       "name": "Super Man"
+    },
+    {
+      "name": "Saulo Dias",
+      "id": 11
     }
   ]
 }
